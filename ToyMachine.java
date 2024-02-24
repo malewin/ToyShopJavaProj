@@ -64,7 +64,10 @@ public class ToyMachine extends ToyFill{
     public void takeFromQueue(){
         while(!pq.isEmpty()){
             ToyConstructor curDrop=pq.remove();
-            System.out.println("Вы достали игрушку: " + curDrop);
+            String takeMsg = "Вы достали игрушку: " + curDrop;
+            FileWorking fw = new FileWorking();
+            fw.save(takeMsg);
+            System.out.println(takeMsg);
         }
     }
     

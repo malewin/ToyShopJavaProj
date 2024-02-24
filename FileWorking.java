@@ -11,10 +11,11 @@ public class FileWorking extends FileOperations{
 
     @Override
     public void save(String smh){
-        try (FileWriter fileWriter = new FileWriter(path)){
-            fileWriter.write(smh + "\n");
+        File toyTitle = new File(path);
+        try (FileWriter fileWriter = new FileWriter(toyTitle, true)){
+            fileWriter.append(smh + "\n");
             fileWriter.flush();
-            // return "Строка <"smh + "> - записана в файл: " + path;
+            System.out.println("Строка <" + smh + "> - записана в файл: " + path);
         }
         catch (IOException e){
             e.printStackTrace();

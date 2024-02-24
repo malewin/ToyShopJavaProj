@@ -20,13 +20,21 @@ public class Main {
         // for (int i = 0; i < 10; i++) {
         //     System.out.println(shop.get());
         // }
+        FileWorking fw = new FileWorking();
+        String assortInfo = "Возможные варианты выйгрыша: " + assortiment;
+        fw.save(assortInfo);
+        fw.save("\n");
+        System.out.println(assortInfo);
 
         for (int i = 0; i < 10; i++) {
             shop.pollInQueue(assortiment);
         }
 
-        System.out.println(assortiment);
-        System.out.println(shop.pq);
+        String shopBuffer = "В МагазинеИгрушек в данный момент находятся следующие игрушки: " + shop.pq;
+        fw.save("\n");
+        fw.save(shopBuffer);
+        fw.save("\n");
+        System.out.println(shopBuffer);
 
         for (int i = 0; i < 10; i++) {
             shop.takeFromQueue();
